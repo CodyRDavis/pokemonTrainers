@@ -11,9 +11,7 @@ router.get('/trainer', function(req, res){
 router.post('/trainer', function(req, res){
     console.log("SERVER RECEIVED: POST /API /TRAINER");
     console.log("Req Body: ", req.body);
-    console.log("Before: ",trainers);
     trainers.push(req.body);
-    console.log("After: ", trainers);
     res.send(trainers);
 });
 

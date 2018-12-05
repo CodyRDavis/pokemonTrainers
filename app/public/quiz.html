@@ -9,7 +9,24 @@
 <body>
     <form>
         First name:<br>
-        <input id="trainerName" type="text" name="firstname" value="Ash">
+        <input id="trainerName" type="text" name="firstname" value="Ash"><br>
+        URL for your Photo:<br>
+        <input id="photo" type = "text" name = "photo" placeholder="URL HERE"><br><br>
+
+        How strong are your pokemon?<br>
+        not very<input id="pkmnStrength" type="range" name="pkmnStrength" min="0" max="10">super powerful<br><br>
+        
+        Are you Friends with your Pokemon?<br>
+        not friends<input id="pkmnFriends" type="range" name="pkmnFriends" min="0" max="10">best friends<br><br>
+
+        How many Pokemon have you caught?<br>
+        not many<input id="pkmnCaught" type="range" name="pkmnCaught" min="0" max="10">LOTS!!!<br><br>
+
+        How funny is 'Smell you Later' as a catch phrase?<br>
+        not very<input id="pkmnSmell" type="range" name="pkmnSmell" min="0" max="10">super funny<br><br>
+
+        How much do you want to battle Red?<br>
+        not very much<input id="pkmnRed" type="range" name="pkmnRed" min="0" max="10">super funny<br><br>
         <br>
         <button id="quizButton" type="submit">FIND ME A TRAINER</button>
     </form>
@@ -19,7 +36,15 @@
             event.preventDefault();
             console.log("I was clicked");
             let trainer = {
-                "name": document.getElementById("trainerName").value
+                "name": document.getElementById("trainerName").value,
+                "photo": document.getElementById('photo').value,
+                "score": [
+                    document.getElementById("pkmnStrength").value,
+                    document.getElementById("pkmnFriends").value,
+                    document.getElementById("pkmnCaught").value,
+                    document.getElementById("pkmnSmell").value,
+                    document.getElementById("pkmnRed").value,
+                ]
             }
             console.log("Trainer:", trainer);
 
