@@ -6,7 +6,7 @@ const trainers = require('../data/trainers');
 //TRAINERS
 router.get('/trainer', function(req, res){
     console.log("SERVER RECEIVED: GET /API /TRAINER");
-    res.send(true);
+    res.send(trainers);
 });
 router.post('/trainer', function(req, res){
     console.log("SERVER RECEIVED: POST /API /TRAINER");
@@ -14,7 +14,7 @@ router.post('/trainer', function(req, res){
     console.log("Before: ",trainers);
     trainers.push(req.body);
     console.log("After: ", trainers);
-    res.send(true);
+    res.send(trainers);
 });
 
 //API CATCH EM ALL

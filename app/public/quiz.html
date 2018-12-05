@@ -19,19 +19,19 @@
             event.preventDefault();
             console.log("I was clicked");
             let trainer = {
-                name: document.getElementById("trainerName").value
+                "name": document.getElementById("trainerName").value
             }
-            console.log(trainer);
-            fetch('/api/trainer', {
-                method: 'POST', // or 'PUT'
-                body: trainer, // data can be `string` or {object}!
-                headers:{
-                    'Content-Type': 'application/json'
-                }
-            }).then(res => res.json())
-            .then(response => console.log('Success:', JSON.stringify(response)))
-            .catch(error => console.error('Error:', error));
+            console.log("Trainer:", trainer);
 
+            const url = "/api/trainer";
+            fetch(url, {
+                method : "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(trainer)
+            });
         });
     </script>
 </body>
