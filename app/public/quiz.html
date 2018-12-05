@@ -7,9 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
+    <div id="trainerCard" style="display:none">
+        <h1>YOU GOT</h1>
+        <h2 id="trainerName"></h1>
+        <img id="trainerPhoto"><br>
+        
+    </div>
+    <form id="trainerQuiz">
         First name:<br>
-        <input id="trainerName" type="text" name="firstname" value="Ash"><br>
+        <input id="Name" type="text" name="firstname" value="Ash"><br>
         URL for your Photo:<br>
         <input id="photo" type = "text" name = "photo" placeholder="URL HERE"><br><br>
 
@@ -36,7 +42,7 @@
             event.preventDefault();
             console.log("I was clicked");
             let trainer = {
-                "name": document.getElementById("trainerName").value,
+                "name": document.getElementById("Name").value,
                 "photo": document.getElementById('photo').value,
                 "score": [
                     document.getElementById("pkmnStrength").value,
@@ -56,7 +62,16 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(trainer)
-            });
+            }).then(dataWrappedByPromise => dataWrappedByPromise.json()) //wtf is this. ask ERIC
+            .then(data => {
+                //get my trainer info back.
+                console.log(data);
+                document.getElementById("trainerQuiz").style.display = 'none';
+                document.getElementById("trainerCard").style.display = 'block';
+                document.getElementById("trainerName").innerHTML = data.name;
+                document.getElementById("trainerPhoto").setAttribute('src', data.photo);
+
+            })
         });
     </script>
 </body>

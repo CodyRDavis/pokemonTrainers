@@ -1,7 +1,9 @@
 //SERVER DEPENDENCIES
 const express = require('express');
 const app = express();
+const PORT = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
+
 
 //ROUTING PATHS
 const htmlRoutes = require('./app/routing/htmlRoutes');
@@ -13,7 +15,7 @@ app.use(bodyParser.json());
 app.use('/api', apiRoutes);
 app.use(htmlRoutes);
 
-app.listen(3000, function(){
+app.listen(PORT, function(){
     console.log("SERVER STATUS:     STARTED");
     console.log("LISTENING ON PORT: 3000");
 });
